@@ -1,0 +1,13 @@
+Streamr subscribe:
+
+curl -X POST -H "Content-Type: application/json" --data '{"name": "streams-source", "config": {"connector.class":"StreamrSourceConnector", "tasks.max":"1", "STREAMR_API_KEY":"", "STREAMR_STREAM_ID":"", "KAFKA_TOPIC":"streamr_in", "topics":"streamr_in" }}' http://localhost:8083/connectors
+
+Streamr publish:
+
+curl -X POST -H "Content-Type: application/json" --data '{"name": "streams-sink", "config": {"connector.class":"StreamrSinkConnector", "tasks.max":"1", "STREAMR_API_KEY":"", "STREAMR_STREAM_ID":"", "KAFKA_TOPIC":"streamr_out", "topics":"streamr_out" }}' http://localhost:8083/connectors
+
+Deleting:
+
+curl -X DELETE localhost:8083/connectors/streams-source
+
+curl -X DELETE localhost:8083/connectors/streams-sink
