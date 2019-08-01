@@ -46,7 +46,6 @@ public class StreamrSinkConnectorTask extends SinkTask {
             System.out.println(stream.getName());
             final ObjectMapper mapper = new ObjectMapper();
             try {
-                // If this fails the JSON string isn't valid and a transfer to the FAILURE relationship is done instead.
                 LinkedHashMap<String, Object> msg = mapper.readValue(json, LinkedHashMap.class); //convert the JSON string to Streamr's Java client format
                 System.out.println(msg.toString());
                 client.publish(stream, msg);
